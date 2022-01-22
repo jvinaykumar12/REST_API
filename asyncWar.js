@@ -21,5 +21,5 @@ fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=I
     .then(response => response.json())
     .then(data => {
         console.log(data.bitcoin.inr)
-        document.getElementById('crypto').innerText = 'crypto price = ' + data.bitcoin.inr + ' in Rupees '
+        document.getElementById('crypto').innerText = 'crypto price = ' + data.bitcoin.inr + ' in Rupees hello '
     })
