@@ -17,7 +17,7 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
     })
 
 // fetch("https://api.coingecko.com/api/v3/simple/price?ids=sfdg&vs_currencies=inr")
-fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
+fetch("https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_currencies=inr&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true")
     .then(response => {
         if(!response.ok){
             throw Error("hello iam error")
@@ -27,10 +27,33 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
     .then(data => { 
         console.log("hh")
         console.log(data)
-        // document.getElementById('crypto').innerText = 'crypto price = ' + data.dogecoin.inr + ' in Rupees hello '
+        document.getElementById('crypto').innerText = 'crypto price = ' + data.dogecoin.inr + ' in Rupees hello '
     })
     .catch(error => {
         console.log("hi2")
         console.log(error)
         console.log("unable to find the given address")
     }) 
+
+
+function CurrentTime() {
+    const d = new Date();
+document.getElementById("time").innerHTML = `${d.getHours()} : ${d.getMinutes()} : ${d.getSeconds()}`
+}
+
+setInterval(CurrentTime,999);
+       
+
+navigator.geolocation.getCurrentPosition((pos)=> {
+    let crd = pos.coords; 
+    console.log(crd.latitude)
+    console.log(crd.longitude)
+    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&units=metric `)
+        .then(response => response.json())
+        .then(data => {console.log(data)})
+}) 
+
+
+
+
+

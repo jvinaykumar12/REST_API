@@ -1,7 +1,5 @@
-https://openweathermap.org/current
 
-467cba2ba4886c10ca25e4a5c0c3b6ed
 
-774c91a8842071b55673d9c558a8f8a6
+https://api.weatherapi.com/v1/current.json?key= 0373c183e04248c898d55224222701&q=London&aqi=no
 
-f7380ed1acfd76147a57fffb9f68fd11
+0373c183e04248c898d55224222701
