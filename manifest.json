@@ -1,0 +1,11 @@
+{
+    "manifest_version" : 3,
+    "name" : "dashbord1",
+    "version" : "1.1",
+    "action" : {
+        "default_icon" : "dutch.webp"
+    },
+    "chrome_url_overrides": {
+        "newtab" : "asyncWar.html"
+    }
+}

@@ -27,7 +27,7 @@ fetch("https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_currencies=
     .then(data => { 
         console.log("hh")
         console.log(data)
-        document.getElementById('crypto').innerText = 'crypto price = ' + data.dogecoin.inr + ' in Rupees hello '
+        document.getElementById('crypto').innerText = 'crypto price = ' + data.dogecoin.inr + ' Rupees'
     })
     .catch(error => {
         console.log("hi2")
@@ -41,7 +41,7 @@ function CurrentTime() {
 document.getElementById("time").innerHTML = `${d.getHours()} : ${d.getMinutes()} : ${d.getSeconds()}`
 }
 
-setInterval(CurrentTime,999);
+setInterval(CurrentTime,1000);
        
 
 navigator.geolocation.getCurrentPosition((pos)=> {
@@ -50,7 +50,17 @@ navigator.geolocation.getCurrentPosition((pos)=> {
     console.log(crd.longitude)
     fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&units=metric `)
         .then(response => response.json())
-        .then(data => {console.log(data)})
+        .then(data => {
+            console.log(data)
+            return new Promise((resolve) => {
+                resolve(data)
+            })
+        })
+        .then(data => {
+            document.getElementById("wicon").src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`
+            document.getElementById("temp").innerHTML = `${Math.round(data.main.temp)}°C <br> ${data.name}`
+
+        })
 }) 
 
 
