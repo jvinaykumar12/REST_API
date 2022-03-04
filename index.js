@@ -27,7 +27,7 @@ fetch("https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_currencies=
     .then(data => { 
         console.log("hh")
         console.log(data)
-        document.getElementById('crypto').innerText = 'crypto price = ' + data.dogecoin.inr + ' Rupees'
+        document.getElementById('crypto').innerText = 'Dogecoin crypto price = ' + data.dogecoin.inr + ' Rupees'
     })
     .catch(error => {
         console.log("hi2")
