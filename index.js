@@ -48,6 +48,11 @@ navigator.geolocation.getCurrentPosition((pos)=> {
     let crd = pos.coords; 
     console.log(crd.latitude)
     console.log(crd.longitude)
+    if(pos.cords === undefined) {
+       
+        crd.latitude = "0"
+        crd.longitude = "0"
+    }
     fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&units=metric `)
         .then(response => response.json())
         .then(data => {
@@ -61,7 +66,7 @@ navigator.geolocation.getCurrentPosition((pos)=> {
             document.getElementById("temp").innerHTML = `${Math.round(data.main.temp)}°C <br> ${data.name}`
 
         })
-}) 
+},()=>  document.getElementById("temp").innerText = "no access to current location" ) 
 
 
 
